@@ -35,7 +35,7 @@ public class InvestigadoresController {
 	}
 	
 	
-	@GetMapping("/investigadoress/{id}")
+	@GetMapping("/investigadores/{id}")
 	public Investigadores investigadoresXID(@PathVariable(name="id") String id) {
 		
 		Investigadores Investigadores_xid= new Investigadores();

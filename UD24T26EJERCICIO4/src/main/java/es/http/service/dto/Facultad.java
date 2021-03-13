@@ -22,7 +22,7 @@ public class Facultad {
 
 	//Atributos de entidad facultad
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)//busca ultimo valor e incrementa desde id final de db
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)//busca ultimo valor e incrementa desde id final de db
 	private int id;
 	@Column(name = "nombre")//no hace falta si se llama igual
 	private String nombre;
@@ -53,28 +53,6 @@ public class Facultad {
 	}
 
 
-
-	public List<Investigadores> getInvestigador() {
-		return Investigador;
-	}
-
-
-
-	public void setInvestigador(List<Investigadores> investigador) {
-		Investigador = investigador;
-	}
-
-
-
-	public List<Equipo> getEquipo() {
-		return Equipo;
-	}
-
-
-
-	public void setEquipo(List<Equipo> equipo) {
-		Equipo = equipo;
-	}
 
 
 
@@ -107,11 +85,35 @@ public class Facultad {
 		this.nombre = nombre;
 	}
 
+	@JsonIgnore
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "investigador")
+	public List<Investigadores> getInvestigador() {
+		return Investigador;
+	}
+
+
+
+	public void setInvestigador(List<Investigadores> investigador) {
+		Investigador = investigador;
+	}
+
+
+	@JsonIgnore
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "equipo")
+	public List<Equipo> getEquipo() {
+		return Equipo;
+	}
+
+
+
+	public void setEquipo(List<Equipo> equipo) {
+		Equipo = equipo;
+	}
 
 //Metodo toString
 	@Override
 	public String toString() {
-		return "Facultad [id=" + id + ", nombre=" + nombre + ", Investigador=" + Investigador + ", Equipo=" + Equipo
+		return "Facultad [id=" + id + ", nombre=" + nombre 
 				+ "]";
 	}
 

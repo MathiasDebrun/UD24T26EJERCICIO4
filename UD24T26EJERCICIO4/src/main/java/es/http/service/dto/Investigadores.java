@@ -34,11 +34,11 @@ public class Investigadores {
 	
 	@ManyToOne(targetEntity = es.http.service.dto.Facultad.class)
 	@JoinColumn(name = "facultad")//no hace falta si se llama igual
-	private int facultad;
+	public Facultad facultad;
 	
 	@OneToMany
     @JoinColumn(name="id")
-    private List<Reserva> reserva;
+    public List<Reserva> reserva;
 	
 	//Constructores
 	
@@ -51,7 +51,7 @@ public class Investigadores {
 	 * @param nombre
 	 * @param facultad
 	 */
-	public Investigadores(String id, String nombre, int facultad, List<Reserva> reserva) {
+	public Investigadores(String id, String nombre, Facultad facultad, List<Reserva> reserva) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -90,14 +90,14 @@ public class Investigadores {
 	/**
 	 * @return the facultad
 	 */
-	public int getFacultad() {
+	public Facultad  getFacultad() {
 		return facultad;
 	}
 
 	/**
 	 * @param facultad the facultad to set
 	 */
-	public void setFacultad(int facultad) {
+	public void setFacultad(Facultad facultad) {
 		this.facultad = facultad;
 	}
 
@@ -119,7 +119,7 @@ public class Investigadores {
 
 	@Override
 	public String toString() {
-		return "Investigadores [id=" + id + ", nombre=" + nombre + ", facultad=" + facultad + ", reserva=" + reserva
+		return "Investigadores [id=" + id + ", nombre=" + nombre + ", facultad=" + facultad  
 				+ "]";
 	}
 

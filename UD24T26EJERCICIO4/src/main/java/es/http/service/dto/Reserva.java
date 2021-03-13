@@ -15,6 +15,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="reserva")//en caso que la tabala sea diferente
 public class Reserva {
@@ -30,11 +32,11 @@ public class Reserva {
 	
 	@ManyToOne
     @JoinColumn(name = "numserie")
-    Equipo Equipo;
+    public Equipo Equipo;
  
     @ManyToOne
     @JoinColumn(name = "dni")
-    Investigadores Investigadores;
+    public Investigadores Investigadores;
     
     
 	
@@ -79,6 +81,7 @@ public Reserva(int id, String comienzo, String fin,  Equipo  Equipo, Investigado
 	/**
 	 * @return the cientifico
 	 */
+	@JsonIgnore
 	public Equipo getEquipo() {
 		return  Equipo;
 	}
@@ -95,6 +98,7 @@ public Reserva(int id, String comienzo, String fin,  Equipo  Equipo, Investigado
 	/**
 	 * @return the proyecto
 	 */
+	@JsonIgnore
 	public Investigadores getInvestigadores() {
 		return Investigadores;
 	}
