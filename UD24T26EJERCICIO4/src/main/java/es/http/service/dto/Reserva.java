@@ -116,8 +116,7 @@ public Reserva(int id, String comienzo, String fin,  Equipo  Equipo, Investigado
 
 
 
-	//Metodo impresion de datos por consola}
-	
+
 
 	
 	
