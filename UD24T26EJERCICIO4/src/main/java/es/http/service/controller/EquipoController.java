@@ -43,7 +43,7 @@ public class EquipoController {
 		
 		Equipo_xid=equipoServiceImpl.equipoXID(id);
 		
-		System.out.println("Equipo XID: "+Equipo_xid);
+//		System.out.println("Equipo XID: "+Equipo_xid);
 		
 		return Equipo_xid;
 	}
@@ -59,7 +59,7 @@ public class EquipoController {
 		Equipo_seleccionado.setNomApels(equipo.getNomApels());
 		Equipo_actualizado = equipoServiceImpl.actualizarEquipo(Equipo_seleccionado);
 		
-		System.out.println("El Equipo actualizado es: "+ Equipo_actualizado);
+//		System.out.println("El Equipo actualizado es: "+ Equipo_actualizado);
 		
 		return Equipo_actualizado;
 	}

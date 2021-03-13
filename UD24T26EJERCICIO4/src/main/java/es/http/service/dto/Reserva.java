@@ -21,7 +21,7 @@ public class Reserva {
 
 	//Atributos de entidad registro_proyecto
 	@Id
-//	@GeneratedValue(strategy = GenerationType.IDENTITY)//busca ultimo valor e incrementa desde id final de db
+	@GeneratedValue(strategy = GenerationType.IDENTITY)//busca ultimo valor e incrementa desde id final de db
 	private int id;
 	@Column (name="comienzo")
 	private String comienzo;

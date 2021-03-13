@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -20,22 +21,24 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 @Entity
-@Table(name="investigadores")//en caso que la tabala sea diferente
+@Table(name="investigador")//en caso que la tabala sea diferente
 public class Investigadores {
 
 	//Atributos de entidad investigadores
 	@Id
+	@Column (name="id")
 //	@GeneratedValue(strategy = GenerationType.IDENTITY)//busca ultimo valor e incrementa desde id final de db
 	private String id;
 	@Column(name = "nomapels")//no hace falta si se llama igual
 	private String nombre;
-	@OneToMany
+	
+	@ManyToOne(targetEntity = es.http.service.dto.Facultad.class)
 	@JoinColumn(name = "facultad")//no hace falta si se llama igual
 	private int facultad;
 	
 	@OneToMany
     @JoinColumn(name="id")
-    private List<Reserva> Reserva;
+    private List<Reserva> reserva;
 	
 	//Constructores
 	
@@ -48,12 +51,12 @@ public class Investigadores {
 	 * @param nombre
 	 * @param facultad
 	 */
-	public Investigadores(String id, String nombre, int facultad, List<Reserva> Reserva) {
+	public Investigadores(String id, String nombre, int facultad, List<Reserva> reserva) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.facultad = facultad;
-		this.Reserva = Reserva;
+		this.reserva = reserva;
 	}
 
 	/**
@@ -102,23 +105,25 @@ public class Investigadores {
 	 * @return the registroInvestigadores
 	 */
 	@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "Reserva")
-	public List<Reserva> getAsingadoA() {
-		return Reserva;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "reserva")
+	public List<Reserva> getReserva() {
+		return reserva;
 	}
 
 	/**
 	 * @param registroInvestigadores the registroInvestigadores to set
 	 */
-	public void setReserva(List<Reserva> Reserva) {
-		this.Reserva = Reserva;
+	public void setReserva(List<Reserva> reserva) {
+		this.reserva = reserva;
 	}
 
 	@Override
 	public String toString() {
-		return "Investigadores [id=" + id + ", nombre=" + nombre + ", facultad=" + facultad + "]";
+		return "Investigadores [id=" + id + ", nombre=" + nombre + ", facultad=" + facultad + ", reserva=" + reserva
+				+ "]";
 	}
 
+	
 
 	
 	

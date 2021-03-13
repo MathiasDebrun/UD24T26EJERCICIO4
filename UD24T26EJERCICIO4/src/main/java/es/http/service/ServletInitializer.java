@@ -7,7 +7,7 @@ public class ServletInitializer extends SpringBootServletInitializer {
 
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		return application.sources(P11CrudErMySqlApplication.class);
+		return application.sources(UD24T26EJERCICIO4.class);
 	}
 
 }

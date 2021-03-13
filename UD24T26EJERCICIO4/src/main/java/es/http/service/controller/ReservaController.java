@@ -42,7 +42,7 @@ public class ReservaController {
 		
 		Reserva_xid=ReservaServiceImpl.ReservaXID(id);
 		
-		System.out.println("Reserva XID: "+Reserva_xid);
+//		System.out.println("Reserva XID: "+Reserva_xid);
 		
 		return Reserva_xid;
 	}
@@ -63,7 +63,7 @@ public class ReservaController {
 		
 		Reserva_actualizado =	ReservaServiceImpl.actualizarReserva(Reserva_seleccionado);
 		
-		System.out.println("El Reserva actualizado es: "+ Reserva_actualizado);
+//		System.out.println("El Reserva actualizado es: "+ Reserva_actualizado);
 		
 		return Reserva_actualizado;
 	}

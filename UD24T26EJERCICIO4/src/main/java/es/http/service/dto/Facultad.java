@@ -29,7 +29,12 @@ public class Facultad {
 
 	@OneToMany
     @JoinColumn(name="id")
-    private List<Reserva> Reserva;
+    private List<Investigadores> Investigador;
+	
+	@OneToMany
+	@JoinColumn(name="id")
+	private List<Equipo> Equipo;
+	
 	
 	//Constructores
 	
@@ -37,13 +42,41 @@ public class Facultad {
 	
 	}
 
-	public Facultad(int id, String nombre, List<Reserva> Reserva) {
+
+
+	public Facultad(int id, String nombre, List<Investigadores> investigador, List<Equipo> equipo) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
-		
-		this.Reserva = Reserva;
+		Investigador = investigador;
+		Equipo = equipo;
 	}
+
+
+
+	public List<Investigadores> getInvestigador() {
+		return Investigador;
+	}
+
+
+
+	public void setInvestigador(List<Investigadores> investigador) {
+		Investigador = investigador;
+	}
+
+
+
+	public List<Equipo> getEquipo() {
+		return Equipo;
+	}
+
+
+
+	public void setEquipo(List<Equipo> equipo) {
+		Equipo = equipo;
+	}
+
+
 
 	//Getters y Setters
 	/**
@@ -74,30 +107,15 @@ public class Facultad {
 		this.nombre = nombre;
 	}
 
-	
 
-	/**
-	 * @return the Reserva
-	 */
-	@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "Reserva")
-	public List<Reserva> getReserva() {
-		return Reserva;
-	}
-
-	/**
-	 * @param registroInvestigadores the registroInvestigadores to set
-	 */
-	public void setRegistroInvestigadores(List<Reserva> Reserva) {
-		this.Reserva = Reserva;
-	}
-
-	//Metodo toString
+//Metodo toString
 	@Override
 	public String toString() {
-		return "Facultad [id=" + id + ", nombre=" + nombre + " Asignado a: "+Reserva
+		return "Facultad [id=" + id + ", nombre=" + nombre + ", Investigador=" + Investigador + ", Equipo=" + Equipo
 				+ "]";
 	}
+
+	
 
 	
 	

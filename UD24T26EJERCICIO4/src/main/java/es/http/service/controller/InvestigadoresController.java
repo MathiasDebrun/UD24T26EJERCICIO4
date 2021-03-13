@@ -22,13 +22,13 @@ public class InvestigadoresController {
 	@Autowired
 	InvestigadoresServiceImpl investigadoresServiceImpl;
 	
-	@GetMapping("/investigadoress")
+	@GetMapping("/investigadores")
 	public List<Investigadores> listarCinvestigadoress(){
 		return investigadoresServiceImpl.listarInvestigadoress();
 	}
 	
 	
-	@PostMapping("/investigadoress")
+	@PostMapping("/investigadores")
 	public Investigadores salvarInvestigadores(@RequestBody Investigadores investigadores) {
 		
 		return investigadoresServiceImpl.guardarInvestigadores(investigadores);
@@ -42,12 +42,12 @@ public class InvestigadoresController {
 		
 		Investigadores_xid=investigadoresServiceImpl.investigadoresXID(id);
 		
-		System.out.println("Investigadores XID: "+Investigadores_xid);
+//		System.out.println("Investigadores XID: "+Investigadores_xid);
 		
 		return Investigadores_xid;
 	}
 	
-	@PutMapping("/investigadoress/{id}")
+	@PutMapping("/investigadores/{id}")
 	public Investigadores actualizarInvestigadores(@PathVariable(name="id")String id,@RequestBody Investigadores investigadores) {
 		
 		Investigadores Investigadores_seleccionado= new Investigadores();
@@ -60,12 +60,12 @@ public class InvestigadoresController {
 		
 		Investigadores_actualizado = investigadoresServiceImpl.actualizarInvestigadores(Investigadores_seleccionado);
 		
-		System.out.println("El Investigadores actualizado es: "+ Investigadores_actualizado);
+//		System.out.println("El Investigadores actualizado es: "+ Investigadores_actualizado);
 		
 		return Investigadores_actualizado;
 	}
 	
-	@DeleteMapping("/investigadoress/{id}")
+	@DeleteMapping("/investigadores/{id}")
 	public void eleiminarInvestigadores(@PathVariable(name="id")String id) {
 		investigadoresServiceImpl.eliminarInvestigadores(id);
 	}

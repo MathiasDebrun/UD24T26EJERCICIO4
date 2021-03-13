@@ -6,21 +6,23 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import es.http.service.dto.Reserva;
-
+import es.http.service.dto.Facultad;
 @Entity
 @Table(name="equipo")
 public class Equipo {
 	
 
 	@Id
+	@Column (name="id")
 	private String id;
 	@Column (name= "nomapels")
 	private String nomApels;
 	
-	@OneToMany
+	@ManyToOne(targetEntity = es.http.service.dto.Facultad.class)
 	@JoinColumn (name= "facultad")
 	private int facultad;
 	
@@ -30,12 +32,12 @@ public class Equipo {
 	
 	
 	
-	public Equipo(String id, String nomApels, int facultad, List<es.http.service.dto.Reserva> asignadoA) {
+	public Equipo(String id, String nomApels, int facultad, List<Reserva> Reserva) {
 		super();
 		this.id = id;
 		this.nomApels = nomApels;
 		this.facultad = facultad;
-		Reserva = asignadoA;
+		this.Reserva = Reserva;
 	}
 	public Equipo() {
 		super();

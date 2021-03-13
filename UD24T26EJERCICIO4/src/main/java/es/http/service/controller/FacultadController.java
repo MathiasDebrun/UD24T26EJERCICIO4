@@ -42,7 +42,7 @@ public class FacultadController {
 		
 		Facultad_xid=facultadServiceImpl.facultadXID(id);
 		
-		System.out.println("Facultad XID: "+Facultad_xid);
+//		System.out.println("Facultad XID: "+Facultad_xid);
 		
 		return Facultad_xid;
 	}
@@ -58,7 +58,7 @@ public class FacultadController {
 		Facultad_seleccionado.setNombre(facultad.getNombre());
 		Facultad_actualizado = facultadServiceImpl.actualizarFacultad(Facultad_seleccionado);
 		
-		System.out.println("El Facultad actualizado es: "+ Facultad_actualizado);
+//		System.out.println("El Facultad actualizado es: "+ Facultad_actualizado);
 		
 		return Facultad_actualizado;
 	}
